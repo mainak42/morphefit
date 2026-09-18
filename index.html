@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#03070d">
+<title>The MorpheFit | Halisahar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#03070d;--card:#07121d;--blue:#008cff;--cyan:#00d8ff;--text:#f4f8ff;--muted:#8e9bab;--border:#0a4567}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#010408;color:var(--text);font-family:Inter,Arial,sans-serif}
+.app{width:min(100%,430px);margin:auto;min-height:100vh;background:radial-gradient(circle at 50% 10%,#062039 0,#03070d 38%,#010408 100%);overflow:hidden}
+header{position:sticky;top:0;z-index:20;padding:18px 16px 10px;background:rgba(2,6,11,.92);backdrop-filter:blur(15px);border-bottom:1px solid #06344e}
+.top{display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;font-size:21px;line-height:.9}.logo b{color:var(--blue)}.tag{font-size:8px;letter-spacing:2px;color:#aebdcb;margin-top:4px}
+.menu{font-size:25px;color:#dcefff}.tabs{display:flex;gap:4px;overflow:auto;padding:12px 0 4px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.menu{border:0;background:none;padding:0;cursor:pointer}.tabs a{white-space:nowrap;border:1px solid #075274;border-radius:20px;padding:8px 14px;font-size:11px;font-weight:800;color:#c5d2de}.tabs.show{display:flex;flex-wrap:wrap}.tabs a.active,.tabs a:hover{background:linear-gradient(100deg,var(--blue),var(--cyan));color:#00131c;border-color:transparent}
+section{padding:22px 14px}.hero{position:relative;min-height:510px;padding:30px 18px 24px;display:flex;align-items:flex-end;background:linear-gradient(0deg,#03070d 0%,rgba(3,7,13,.35) 55%,rgba(3,7,13,.15)),url("assets/morphefit-gym.jpg") center 25%/cover no-repeat}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.76),rgba(0,0,0,.05) 75%)}.hero>*{position:relative;z-index:1}.eyebrow{font-size:10px;letter-spacing:3px;font-weight:900;color:var(--cyan);text-transform:uppercase}.hero h1{font-family:"Bebas Neue";font-size:70px;line-height:.78;margin:12px 0}.hero h1 span{color:var(--blue)}.hero p{font-size:12px;line-height:1.55;color:#c5d0dc;max-width:315px}.btn{display:inline-block;text-decoration:none;border-radius:8px;padding:12px 17px;background:linear-gradient(100deg,var(--blue),var(--cyan));color:#00121a;font-size:11px;font-weight:900;letter-spacing:.5px}
+.location{margin-top:-1px;background:#050c14;border:1px solid var(--border);border-radius:13px;padding:15px;display:grid;grid-template-columns:1fr auto;gap:14px}.location strong{display:block;font-size:13px}.location p{margin:5px 0 0;color:#9daab8;font-size:10px;line-height:1.5}.wa{border-left:1px solid #17627f;padding-left:14px;text-align:center;display:flex;flex-direction:column;justify-content:center}.wa b{font-size:13px}.wa small{font-size:8px;color:#7f93a6;margin-top:4px}
+h2{font-family:"Bebas Neue";font-size:39px;line-height:.9;margin:8px 0 18px}h2 span{color:var(--blue)}.section-note{font-size:10px;color:var(--muted);line-height:1.5}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.feature{border:1px solid var(--border);border-radius:9px;padding:13px 6px;text-align:center;background:#040a11}.feature i{font-style:normal;font-size:22px;color:var(--cyan)}.feature b{display:block;font-size:8px;margin-top:7px;line-height:1.25}
+.programs{display:grid;grid-template-columns:1fr 1fr;gap:9px}.program{border:1px solid var(--border);border-radius:10px;padding:15px;background:linear-gradient(145deg,#081824,#040a10)}.program .ico{font-size:25px;color:var(--blue)}.program b{display:block;font-size:12px;margin-top:8px}.program span{font-size:9px;color:var(--muted)}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:9px}.plan{border:1px solid var(--border);border-radius:10px;padding:17px 13px;background:#050d15}.plan.featured{border-color:var(--blue);box-shadow:0 0 24px #007cff18}.plan h3{font-size:12px;margin:0 0 10px}.price{height:28px;border:1px dashed #315268;border-radius:5px;color:#6f8293;display:grid;place-items:center;font-size:9px;margin-bottom:12px}.plan ul{padding:0;margin:0;list-style:none}.plan li{font-size:9px;color:#aab7c4;padding:4px 0}.plan li:before{content:"✓";color:var(--cyan);margin-right:6px}.plan .btn{width:100%;text-align:center;margin-top:9px;padding:9px;font-size:9px}
+.switch{display:flex;border:1px solid var(--border);border-radius:20px;padding:3px;float:right;margin-top:-45px}.switch button{border:0;background:none;color:#aebbc8;border-radius:16px;padding:6px 10px;font-size:9px;font-weight:800}.switch button.on{background:var(--blue);color:#00121a}.gallery{clear:both;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:13px}.gallery .tile{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#07121d;min-height:130px;position:relative}.gallery img{width:100%;height:100%;object-fit:cover;opacity:.78}.gallery .empty{height:100%;min-height:130px;display:grid;place-items:center;text-align:center;color:#718294;padding:15px;font-size:10px}.tile label{position:absolute;bottom:8px;left:8px;background:#02060dcc;padding:5px 7px;border-radius:4px;font-size:8px;font-weight:800}
+.reviews{border:1px solid var(--border);border-radius:11px;padding:25px 15px;text-align:center;background:#050c14}.quote{font-size:34px;color:var(--blue)}.reviews p{font-size:10px;color:var(--muted);margin:4px 0 15px}.review-btn{border:1px solid var(--blue);color:var(--cyan);background:none;border-radius:7px;padding:9px 14px;font-size:9px;font-weight:800}
+footer{padding:30px 15px;text-align:center;border-top:1px solid #06344e;background:#02060b}footer strong{font-size:12px}footer p{color:#708092;font-size:9px;margin:8px 0}
+.float{position:fixed;right:calc(50% - min(215px,50vw) + 15px);bottom:18px;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:white;text-decoration:none;font-size:23px;box-shadow:0 8px 25px #25d36644}
+@media(min-width:431px){body{padding:18px 0}.app{border:1px solid #0d344a;border-radius:28px;box-shadow:0 25px 80px #000;min-height:900px}header{border-radius:28px 28px 0 0}.float{right:calc(50% - 215px + 15px)}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+ <div class="top"><div><a href="#home" style="color:inherit;text-decoration:none"><div class="logo">THE MORPH<span style="color:#008cff">FIT</span></div><div class="tag">TRANSFORM. EVOLVE. BECOME.</div></div></a><button class="menu" id="menuBtn" aria-label="Show navigation">☰</button></div>
+ <nav class="tabs"><a class="active" href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#plans">Plans</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
+</header>
+
+<section class="hero" id="home"><div><div class="eyebrow">Stronger • Healthier • Happier</div><h1>FITNESS<br>BUILDS<br><span>BETTER LIVES</span></h1><p>Train with purpose. Build strength, improve movement and create a healthier lifestyle at The MorpheFit.</p><a class="btn" href="#contact">JOIN NOW →</a></div></section>
+
+<section id="contact" style="padding-top:12px"><div class="location"><div><strong>📍 Halisahar, West Bengal</strong><p>HK Bhatta Road (Near Durbar More, Galaxy Community Hall), Station Road, Nabanagar, Halisahar, West Bengal — 743136</p><a href="https://www.google.com/maps/search/?api=1&query=HK+Bhatta+Road+Halisahar+West+Bengal+743136" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;color:#00d8ff;font-size:9px;font-weight:800;text-decoration:none">OPEN IN GOOGLE MAPS →</a></div><div class="wa"><b>8240843935</b><small>WhatsApp</small></div></div></section>
+
+<section id="about"><div class="eyebrow">THE FACILITY</div><h2>TRAIN IN A <span>BETTER SPACE.</span></h2><div class="features"><div class="feature"><i>🏋</i><b>MODERN<br>EQUIPMENT</b></div><div class="feature"><i>▦</i><b>SPACIOUS<br>FACILITY</b></div><div class="feature"><i>↟</i><b>DOUBLE-FLOOR<br>GYM</b></div></div></section>
+
+<section id="programs"><div class="eyebrow">TRAINING</div><h2>OUR <span>PROGRAMS.</span></h2><div class="programs">
+<div class="program"><div class="ico">🏋</div><b>Bodybuilding</b><span>Build muscle & strength.</span></div>
+<div class="program"><div class="ico">⚡</div><b>Powerlifting</b><span>Train for raw strength.</span></div>
+<div class="program"><div class="ico">◈</div><b>Weight Management</b><span>Move toward your goal.</span></div>
+<div class="program"><div class="ico">✦</div><b>Zumba</b><span>High-energy group fitness.</span></div>
+<div class="program"><div class="ico">◌</div><b>Yoga</b><span>Balance, mobility & recovery.</span></div>
+<div class="program"><div class="ico">🥗</div><b>Tailored Diet Plan</b><span>Nutrition guidance.</span></div>
+</div></section>
+
+<section id="plans"><div class="eyebrow">MEMBERSHIP</div><h2>YOUR <span>PLAN.</span></h2><p class="section-note">Prices intentionally left blank so you can add your actual rates later.</p><div class="plans" style="margin-top:14px">
+<div class="plan"><h3>UNDER 18 PLAN</h3><div class="price">PRICE —</div><ul><li>Gym access</li><li>Basic guidance</li><li>Fitness support</li></ul><a class="btn" href="#contact">GET STARTED →</a></div>
+<div class="plan featured"><h3>3 MONTHS PLAN</h3><div class="price">PRICE —</div><ul><li>Gym access</li><li>Training guidance</li><li>Progress support</li></ul><a class="btn" href="#contact">GET STARTED →</a></div>
+<div class="plan"><h3>YEARLY PLAN</h3><div class="price">PRICE —</div><ul><li>Full gym access</li><li>Training support</li><li>Long-term guidance</li></ul><a class="btn" href="#contact">GET STARTED →</a></div>
+<div class="plan"><h3>CUSTOM PLAN</h3><div class="price">PRICE —</div><ul><li>Ask our team</li><li>Goal-based option</li><li>Flexible enquiry</li></ul><a class="btn" href="#contact">ENQUIRE →</a></div>
+</div></section>
+
+<section id="gallery"><div class="eyebrow">MEDIA</div><h2>GYM <span>GALLERY.</span></h2><div class="switch"><button id="photos" class="on">PHOTOS</button><button id="videos">VIDEOS</button></div><div class="gallery" id="mediaGrid">
+<div class="tile"><img src="assets/morphefit-gym.jpg" alt="MorpheFit gym"><label>THE MORPHEFIT</label></div>
+<div class="tile"><div class="empty">YOUR NEXT GYM PHOTO<br><br>Replace this card with your own photo.</div></div>
+<div class="tile"><div class="empty">NEW EQUIPMENT PHOTO<br><br>Ready for your upload.</div></div>
+<div class="tile"><div class="empty">TRAINING MOMENT<br><br>Ready for your upload.</div></div>
+</div></section>
+
+<section id="reviews"><div class="eyebrow">MEMBERS</div><h2>MEMBER <span>REVIEWS.</span></h2><div class="reviews"><div class="quote">“</div><p>Real member reviews will appear here. Add your verified Google/member testimonials when you are ready.</p><a class="review-btn" href="https://wa.me/918240843935?text=Hi%20MorpheFit%2C%20I%20would%20like%20to%20share%20a%20review." target="_blank" rel="noopener">ADD A REVIEW →</a></div></section>
+
+<footer><strong>THE MORPHEFIT</strong><p>TRANSFORM. EVOLVE. BECOME.</p><p>Halisahar • West Bengal • 8240843935</p></footer>
+</div>
+<a class="float" href="https://wa.me/918240843935" aria-label="WhatsApp">◉</a>
+
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const tabs=document.querySelector('.tabs');
+menuBtn.onclick=()=>{tabs.classList.toggle('show')};
+document.querySelectorAll('.tabs a').forEach(a=>a.onclick=()=>tabs.classList.remove('show'));
+const photos=document.getElementById('photos'),videos=document.getElementById('videos'),grid=document.getElementById('mediaGrid');
+const photoHTML=grid.innerHTML;
+photos.onclick=()=>{photos.classList.add('on');videos.classList.remove('on');grid.innerHTML=photoHTML};
+videos.onclick=()=>{videos.classList.add('on');photos.classList.remove('on');grid.innerHTML='<div class="tile" style="grid-column:1/-1"><div class="empty" style="min-height:190px">YOUR GYM VIDEOS WILL APPEAR HERE<br><br>Add your own MP4/video embeds later.</div></div>'};
+</script>
+</body></html>
